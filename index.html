@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="description" content="Tabulasikan Keuangan anda lebih mudah, cepat, dan dapatkan ringkasan secara mendetail.">
+    <meta name="keywords" content="MyPlanner, Budget Planner, Budget, Planning, Keuangan, Finansial">
+    <meta name="author" content="Dimas Tri Raharjo">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="/assets/css/base.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/assets/css/mobile.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" type="text/css" media="screen">
+    <link rel="shortcut icon" href="/assets/img/logo-icon.png" type="image/png">
+    <title>MyPlanner | Plan Wisely, Live Abudantly</title>
+</head>
+<body>
+    <header class="header hide_desktop">
+        <a id="cd-logo" href="#"><img src="/assets/img/logo.png" alt="MYPLANNER"></a>
+    </header>
+    <div class="hide_mobile">
+        <header class="header fixed_head">
+            <div class="header-in">
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="/assets/img/logo.png" alt="MYPLANNER">
+                    </a>
+                </h1>
+            </div>
+        </header>
+    </div>
+    <main class="cd-main-content">
+        <!-- CONTENT HERE -->
+        <div class="hero">
+            <div class="hero-in">
+                <p class="title t-center">Selamat Datang di</h3>
+                <h2 class="title t-center">MONTHLY BUDGET PLANNER</h2>
+                <p class="cl-white t-center">Membantu Anda Dalam Mengatur Keuangan</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-col overflow">
+                <div class="blockbox margin-top-lg">
+                    <p>Silahkan lihat <a href="#">Instructions</a> dan <a href="#">FAQs</a> dibawah untuk instruksi menggunakan budget planner ini</p>
+                </div>
+                <!-- KONVERTER -->
+                <div class="blockbox box-converter">
+                    <div class="box-filter">
+                        <h3 class="margin-bottom-lg">Konvert Uang Berdasarkan Interval ke Bulanan</h3>
+                        <div class="flex gap-20">
+                            <div class="col-4">
+                                <label class="small" for="cnv-money">Nomimal</label>
+                                <div class="element-box">
+                                    <div class="icons">Rp</div>
+                                    <input type="text" class="element-input normal radius6" id="cnv-money">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <label class="small">Interval Masukan</label>
+                                <div class="element-box" for="cnv-interval-in">
+                                    <select id="cnv-interval-in" class="element-select noicons radius6">
+                                        <option value="">-- Pilih --</option>
+                                        <option value="1">Harian</option>
+                                        <option value="2">Mingguan</option>
+                                        <option value="3">Kuartal</option>
+                                        <option value="4">Tahunan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-1 align-content-center">
+                                <span class="margin-right-sm margin-left-sm"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="col-4">
+                                <label class="small" for="cnv-hasil">Hasil dalam Bulanan</label>
+                                <div class="element-box">
+                                    <div class="icons">Rp</div>
+                                    <input type="text" class="element-input normal radius6" id="cnv-hasil" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- PENDAPATAN -->
+                <div class="blockbox margin-bottom-no">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Pendapatan</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-input-header">
+                                <h4>Sumber Pendapatan</h4>
+                                <button class="btn-action fw7" onclick="addRow('table-income')">Tambah</button>
+                            </div>
+                            <table class="table-input" id="table-income" data-table-type="income">
+                                <thead>
+                                    <tr>
+                                        <th style="width:50%">Sumber</th>
+                                        <th style="width:40%">Nominal</th>
+                                        <th style="width:10%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="source[]" placeholder="masukan label" /></td>
+                                        <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                        <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- PENGELUARAN TETAP -->
+                <div class="blockbox margin-bottom-no">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Pengeluaran Tetap</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="margin-bottom-sm">
+                                <div class="table-input-header">
+                                    <h4>Hutang dan Cicilan</h4>
+                                    <button class="btn-action fw7" onclick="addRow('table-outcome-loan')">Tambah</button>
+                                </div>
+                                <table class="table-input" id="table-outcome-loan" data-table-type="outcome">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:50%">Deskripsi</th>
+                                            <th style="width:40%">Nominal</th>
+                                            <th style="width:10%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="margin-bottom-sm">
+                                <div class="table-input-header">
+                                    <h4>Terkait Pekerjaan</h4>
+                                    <button class="btn-action fw7" onclick="addRow('table-outcome-worked')">Tambah</button>
+                                </div>
+                                <table class="table-input" id="table-outcome-worked" data-table-type="outcome">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:50%">Deskripsi</th>
+                                            <th style="width:40%">Nominal</th>
+                                            <th style="width:10%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="transport" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="makan" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="lainnya" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="margin-bottom-sm">
+                                <div class="table-input-header">
+                                    <h4>Terkait Rumah Tangga</h4>
+                                    <button class="btn-action fw7" onclick="addRow('table-outcome-houses')">Tambah</button>
+                                </div>
+                                <table class="table-input" id="table-outcome-houses" data-table-type="outcome">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:50%">Deskripsi</th>
+                                            <th style="width:40%">Nominal</th>
+                                            <th style="width:10%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="belanja" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="air" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="listrik" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="gas" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="lainnya" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="margin-bottom-sm">
+                                <div class="table-input-header">
+                                    <h4>Tanggunan Anak/Saudara</h4>
+                                    <button class="btn-action fw7" onclick="addRow('table-outcome-childs')">Tambah</button>
+                                </div>
+                                <table class="table-input" id="table-outcome-childs" data-table-type="outcome">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:50%">Deskripsi</th>
+                                            <th style="width:40%">Nominal</th>
+                                            <th style="width:10%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="produk bayi" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="sekolah" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="title[]" placeholder="masukan label" value="lainnya" /></td>
+                                            <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                            <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- PENGELUARAN TIDAK TETAP -->
+                <div class="blockbox margin-bottom-no">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Pengeluaran Tidak Tetap</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-input-header">
+                                <h4>Pengeluaran Tidak Tetap</h4>
+                                <button class="btn-action fw7" onclick="addRow('table-outcome-varied')">Tambah</button>
+                            </div>
+                            <table class="table-input" id="table-outcome-varied" data-table-type="outcome">
+                                <thead>
+                                    <tr>
+                                        <th style="width:50%">Deskripsi</th>
+                                        <th style="width:40%">Nominal</th>
+                                        <th style="width:10%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="title[]" placeholder="masukan label" /></td>
+                                        <td class="element-box"><div class="icons">Rp</div><input type="text" name="amount[]" placeholder="0" class="currency" /></td>
+                                        <td><button onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="blockbox margin-bottom-lg">
+                    <button id="btn-calc" onclick="showResult()">HITUNG</button>
+                </div>
+                <!-- RESULT -->
+                <div class="blockbox" id="div-result">
+                    <table id="table-bp-result">
+                        <tbody></tbody>
+                    </table>
+                    <div class="div-chart">
+                        <canvas class="margin-bottom-sm" id="breakdownChart" width="600" height="600" style="display: none;"></canvas>
+                        <canvas class="margin-bottom-sm" id="breakdownPPChart" width="600" height="600" style="display: none;"></canvas>
+                        <canvas class="margin-bottom-sm" id="breakdownDetailPPChart" width="600" height="600" style="display: none;"></canvas>
+                    </div>
+                    <div style="display: none;" id="to-anggaran" class="padding-top-sm">
+                        <p class="margin-bottom-xs">*Click Tombol Dibawah untuk ke halaman anggaran</p>
+                        <a href="anggaran.html">ANGGARAN TUJUAN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CONTENT ENDS -->
+    </main>
+    <footer class="footer">
+        <div class="footer-bot">
+            <div class="col-12 t-center padding-left-sm padding-right-sm">
+                <p class="cl-white margin-bottom-no">© 2024 MyPlanner By Dimas Tri Raharjo | All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/assets/js/base.js"></script>
+    <script src="/assets/js/budgetplanner.js"></script>
+</body>
+</html>
