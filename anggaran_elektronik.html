@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="description" content="Tabulasikan Keuangan anda lebih mudah, cepat, dan dapatkan ringkasan secara mendetail.">
+    <meta name="keywords" content="MyPlanner, Budget Planner, Budget, Planning, Keuangan, Finansial">
+    <meta name="author" content="Dimas Tri Raharjo">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="assets/css/base.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="assets/css/mobile.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" media="screen">
+    <link rel="shortcut icon" href="assets/img/logo-icon.png" type="image/png">
+    <title>MyPlanner | Plan Wisely, Live Abudantly</title>
+</head>
+<body>
+    <header class="header hide_desktop">
+        <a id="cd-logo" href="#"><img src="assets/img/logo.png" alt="MYPLANNER"></a>
+    </header>
+    <div class="hide_mobile">
+        <header class="header fixed_head">
+            <div class="header-in">
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="assets/img/logo.png" alt="MYPLANNER">
+                    </a>
+                </h1>
+            </div>
+        </header>
+    </div>
+    <main class="cd-main-content">
+        <!-- CONTENT HERE -->
+        <div class="hero">
+            <div class="hero-in">
+                <h2 class="title t-center">SIMULASI LIBURAN</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-col overflow">
+                <div class="blockbox margin-top-lg">
+                    <p class="margin-bottom-lg">Silahkan masukan data yang diperlukan untuk perhitungan.</p>
+                    <div class="box-filter">
+                        <div class="flex flex-wrap gap-20 margin-bottom-sm">
+                            <div class="col-6">
+                                <label class="medium" for="ang-harga">Nominal</label>
+                                <div class="element-box">
+                                    <div class="icons">Rp</div>
+                                    <input type="text" class="element-input normal radius6" id="ang-harga">
+                                    <span class="err-msg d-none" id="ang-harga-err">Silahkan masukan nominal data terlebih dahulu</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="medium" for="ang-tenor">Tenor</label>
+                                <div class="element-box">
+                                    <div class="icons right small">Tahun</div>
+                                    <input type="text" class="element-input radius6" id="ang-tenor">
+                                    <span class="err-msg d-none" id="ang-tenor-err">Silahkan masukan Jangka Waktu</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="medium" for="ang-dp">DP</label>
+                                <div class="element-box">
+                                    <div class="icons right">%</div>
+                                    <input type="text" class="element-input radius6" id="ang-dp">
+                                    <span class="err-msg d-none" id="ang-dp-err">Silahkan masukan DP terlebih dahulu</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="medium" for="ang-bunga">Suku Bunga</label>
+                                <div class="element-box">
+                                    <div class="icons right">%</div>
+                                    <input type="text" class="element-input radius6" id="ang-bunga">
+                                    <span class="err-msg d-none" id="ang-bunga-err">Silahkan masukan Suku Bunga terlebih dahulu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center d-none" id="ang-info">
+                        <p><span class="cl-red">*</span></p>
+                    </div>
+                </div>
+                <div class="blockbox margin-bottom-lg">
+                    <button id="btn-calc" onclick="showResult('4')">HITUNG</button>
+                </div>
+                <div class="blockbox" id="div-result">
+                    <div id="result-text-1"></div>
+                    <table class="margin-top-lg margin-bottom-lg" id="table-ang-result">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                    <div id="result-text-2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- CONTENT ENDS -->
+    </main>
+    <footer class="footer">
+        <div class="footer-bot">
+            <div class="col-12 t-center padding-left-sm padding-right-sm">
+                <p class="cl-white margin-bottom-no">© 2024 MyPlanner By Dimas Tri Raharjo | All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/js/base.min.js"></script>
+    <script src="assets/js/anggarancicilan.min.js"></script>
+</body>
+</html>

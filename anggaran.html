@@ -10,9 +10,9 @@
     <meta name="keywords" content="MyPlanner, Budget Planner, Budget, Planning, Keuangan, Finansial">
     <meta name="author" content="Dimas Tri Raharjo">
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="assets/css/base.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="assets/css/mobile.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="assets/css/font-awesome.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="assets/css/base.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="assets/css/mobile.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" media="screen">
     <link rel="shortcut icon" href="assets/img/logo-icon.png" type="image/png">
     <title>MyPlanner | Plan Wisely, Live Abudantly</title>
 </head>
@@ -42,87 +42,71 @@
         </div>
         <div class="container">
             <div class="container-col overflow">
-                <div class="blockbox margin-top-lg">
-                    <h3>Anggaran Dana</h3>
-                    <p class="margin-bottom-lg">Di halaman ini anda dapat mendefinisikan pengeluaran anggaran untuk suatu tujuan.</p>
-                    <div class="box-filter">
-                        <div class="flex gap-20 margin-bottom-sm">
-                            <div class="col-6">
-                                <label class="small" for="ang-tujuan">Tujuan<span class="cl-red">*</span></label>
-                                <div class="element-box">
-                                    <input type="text" class="element-input noicons normal radius6" id="ang-tujuan">
+                <div class="blockbox overflow margin-top-lg">
+                    <h2 class="titlebox">Anggaran Dana</h2>
+                    <p class="margin-bottom-lg">Di halaman ini silahkan pilih tujuan anggaran anda untuk disimulasikan.</p>
+                    <ul class="row-list row2 menu_anggaran">
+                        <li>
+                            <a href="anggaran_liburan.html">
+                                <div class="box-avatar column">
+                                    <div class="avatar" style="background-color: #87CEFA;">
+                                        <img src="assets/img/summer-svgrepo-com.svg" alt="liburan">
+                                    </div>
+                                    <div class="text-avatar">
+                                        <h3>LIBURAN</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <label class="small">Tipe Tujuan<span class="cl-red">*</span></label>
-                                <div class="element-box" for="ang-tipe">
-                                    <select id="ang-tipe" class="element-select noicons radius6">
-                                        <option value="">-- Pilih --</option>
-                                        <option value="1">Liburan</option>
-                                        <option value="2">Rumah</option>
-                                        <option value="3">Kendaran</option>
-                                        <option value="4">Electronic</option>
-                                        <option value="5">Investasi</option>
-                                        <option value="5">Biaya Pendidikan</option>
-                                    </select>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="anggaran_rumah.html">
+                                <div class="box-avatar column">
+                                    <div class="avatar" style="background-color: #98FB98;">
+                                        <img src="assets/img/house-money-svgrepo-com.svg" alt="rumah">
+                                    </div>
+                                    <div class="text-avatar">
+                                        <h3>RUMAH</h3>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-20 margin-bottom-sm">
-                            <div class="col-6 d-none">
-                                <label class="small">Jenis Investasi</label>
-                                <div class="element-box" for="ang-jenisinvestasi">
-                                    <select id="ang-jenisinvestasi" class="element-select noicons radius6">
-                                        <option value="">-- Pilih --</option>
-                                        <option value="1">Emas</option>
-                                        <option value="2">Saham</option>
-                                        <option value="3">Reksa Dana</option>
-                                        <option value="4">Deposito</option>
-                                        <option value="5">Properti</option>
-                                        <option value="6">Cryptocurrency</option>
-                                    </select>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="anggaran_mobil.html">
+                                <div class="box-avatar column">
+                                    <div class="avatar" style="background-color: #F08080;">
+                                        <img src="assets/img/car-svgrepo-com.svg" alt="mobil">
+                                    </div>
+                                    <div class="text-avatar">
+                                        <h3>KENDARAAN</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6 d-none">
-                                <label class="small" for="ang-harga">Nominal</label>
-                                <div class="element-box">
-                                    <div class="icons">Rp</div>
-                                    <input type="text" class="element-input normal radius6" id="ang-harga">
-                                    <span class="err-msg d-none" id="ang-harga-err">err</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="anggaran_elektronik.html">
+                                <div class="box-avatar column">
+                                    <div class="avatar" style="background-color: #FAFAD2;">
+                                        <img src="assets/img/electronic-svgrepo-com.svg" alt="elektronik">
+                                    </div>
+                                    <div class="text-avatar">
+                                        <h3>ELEKTRONIK</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6 d-none">
-                                <label class="small" for="ang-targetwaktu">Target Waktu</label>
-                                <div class="element-box">
-                                    <input type="month" class="element-input noicons radius6" id="ang-targetwaktu" min="2024-05" value="2024-05">
-                                    <span class="err-msg d-none" id="ang-targetwaktu-err">err</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="anggaran_investasi.html">
+                                <div class="box-avatar column">
+                                    <div class="avatar" style="background-color: #B0C4DE;">
+                                        <img src="assets/img/investment-svgrepo-com.svg" alt="investasi">
+                                    </div>
+                                    <div class="text-avatar">
+                                        <h3>INVESTASI</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6 d-none">
-                                <label class="small">Jenis Asuransi</label>
-                                <div class="element-box" for="ang-agunanrumah">
-                                    <select id="ang-agunanrumah" class="element-select noicons radius6">
-                                        <option value="">-- Pilih --</option>
-                                        <option value="1">Comprehensive (All Risk)</option>
-                                        <option value="2">TLO (Total Loss Only)</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center d-none" id="ang-info">
-                        <p><span class="cl-red">*</span></p>
-                    </div>
-                </div>
-                <div class="blockbox margin-bottom-lg">
-                    <button id="btn-calc" onclick="showResult()">HITUNG</button>
-                </div>
-                <div class="blockbox" id="div-result">
-                    <table id="table-ang-result">
-                        <thead></thead>
-                        <tbody></tbody>
-                    </table>
-                    <div id="result-text"></div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -137,8 +121,7 @@
     </footer>
 
     <script src="assets/js/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="assets/js/base.js"></script>
-    <script src="assets/js/anggarancicilan.js"></script>
+    <script src="assets/js/base.min.js"></script>
+    <script src="assets/js/anggarancicilan.min.js"></script>
 </body>
 </html>
