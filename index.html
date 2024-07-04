@@ -43,42 +43,27 @@
         <div class="container">
             <div class="container-col overflow">
                 <div class="blockbox margin-top-lg">
-                    <p>Silahkan lihat <a href="#">Instructions</a> dan <a href="#">FAQs</a> dibawah untuk instruksi menggunakan budget planner ini</p>
+                    <p>Selamat Datang di MyPlanner bagian Monthly Budget Planner, Anda dapat memasukan angka pendapatan dan pengeluaran pada tabel dibawah ini lalu lihat hasil ringkasannya.</p><br>
+                    <p>Temukan informasi dan instruksi penggunaan MyPlanner ini di halaman <a href="info.html" class="link">FAQs</a> kami.</p>
                 </div>
-                <!-- KONVERTER -->
-                <div class="blockbox box-converter">
-                    <div class="box-filter">
-                        <h3 class="margin-bottom-lg">Konvert Uang Berdasarkan Interval ke Bulanan</h3>
-                        <div class="flex gap-20">
-                            <div class="col-4">
-                                <label class="small" for="cnv-money">Nomimal</label>
-                                <div class="element-box">
-                                    <div class="icons">Rp</div>
-                                    <input type="text" class="element-input normal radius6" id="cnv-money">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <label class="small">Interval Masukan</label>
-                                <div class="element-box" for="cnv-interval-in">
-                                    <select id="cnv-interval-in" class="element-select noicons radius6">
-                                        <option value="">-- Pilih --</option>
-                                        <option value="1">Harian</option>
-                                        <option value="2">Mingguan</option>
-                                        <option value="3">Kuartal</option>
-                                        <option value="4">Tahunan</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-1 align-content-center">
-                                <span class="margin-right-sm margin-left-sm"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
-                            </div>
-                            <div class="col-4">
-                                <label class="small" for="cnv-hasil">Hasil dalam Bulanan</label>
-                                <div class="element-box">
-                                    <div class="icons">Rp</div>
-                                    <input type="text" class="element-input normal radius6" id="cnv-hasil" readonly>
-                                </div>
-                            </div>
+                <div class="blockbox margin-bottom-no">
+                    <div class="utildata">
+                        <button class="w2 util-menu export" data-tab="#tab-1">Export <i class="fa fa-upload"></i></button>
+                        <button class="w2 util-menu import" data-tab="#tab-2">Import <i class="fa fa-download"></i></button>
+                        <button class="w1 util-menu clear" onclick="confirmClearData()">Clear <i class="fa fa-trash-o"></i></button>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-content" id="tab-1" style="display: none;">
+                            <button class="export" onclick="exportData()">Export as JSON</button>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-content" id="tab-2" style="display: none;">
+                        <form id="upload">
+                            <label for="file">File to upload</label>
+                            <input type="file" id="file" accept=".json">
+                            <button class="import">Upload</button>
+                        </form>
                         </div>
                     </div>
                 </div>
