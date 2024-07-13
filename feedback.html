@@ -25,13 +25,14 @@
 
     // close modal function
     const closeModal = function () {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+        handleUserRefusal();
+        resetInterval();
     };
 
     // close the modal when the close button and overlay is clicked
     closeModalBtn.addEventListener("click", closeModal);
-    // overlay.addEventListener("click", closeModal);
 
     // close modal when the Esc key is pressed
     document.addEventListener("keydown", function (e) {
@@ -42,17 +43,30 @@
 
     // open modal function
     const openModal = function () {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+        modal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
     };
-    // open modal event
-    // openModalBtn.addEventListener("click", openModal);
 
     surveyBtn.addEventListener("click", () => {
         savedToSession('survey', true);
     })
 
-    setInterval(() => {
+    let intervalTime = 30*1000; // 30 sec
+    let refusalCount = 0;
+
+    function handleUserRefusal() {
+        refusalCount++;
+        intervalTime *= 2; // Exponentially increase the interval time
+    }
+
+    function resetInterval() {
+        clearInterval(intervalID);
+        intervalID = setInterval(() => {
+            if (!getDataSession('survey')) openModal();
+        }, intervalTime);
+    }
+
+    let intervalID = setInterval(() => {
         if (!getDataSession('survey')) openModal();
-    }, 30*1000); // 30 detik
+    }, intervalTime);
 </script>
