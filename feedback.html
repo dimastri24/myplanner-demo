@@ -1,0 +1,58 @@
+<div class="gf-btn-container">
+    <div class="gf-btn-button">
+        <a href="https://forms.gle/FXrDF6HjYkr46cRMA" target="_blank"><span class="gf-btn-text">Feedback</span></a>
+    </div>
+</div>
+<!-- MODAL -->
+<div class="modal hidden">
+    <button class="btn-close">⨉</button>
+    <div class="margin-bottom-sm">
+        <h3>Bagaimana Pengalaman Anda?</h3>
+        <p>Kami menghargai masukan Anda. Luangkan waktu kurang dari 3 menit untuk mengisi survei singkat kami pada link di bawah ini</p>
+        <p>Terima kasih atas partisipasi dan dukungan Anda!</p>
+    </div>
+    <a href="https://forms.gle/FXrDF6HjYkr46cRMA" target="_blank" class="btn" id="survey">Menuju Survey</a>
+</div>
+<div class="overlay hidden"></div>
+<!-- END MODAL -->
+
+<script>
+    const modal = document.querySelector(".modal");
+    const overlay = document.querySelector(".overlay");
+    const openModalBtn = document.querySelector(".btn-open");
+    const closeModalBtn = document.querySelector(".btn-close");
+    const surveyBtn = document.querySelector("#survey");
+
+    // close modal function
+    const closeModal = function () {
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+    };
+
+    // close the modal when the close button and overlay is clicked
+    closeModalBtn.addEventListener("click", closeModal);
+    // overlay.addEventListener("click", closeModal);
+
+    // close modal when the Esc key is pressed
+    document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+    }
+    });
+
+    // open modal function
+    const openModal = function () {
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    };
+    // open modal event
+    // openModalBtn.addEventListener("click", openModal);
+
+    surveyBtn.addEventListener("click", () => {
+        savedToSession('survey', true);
+    })
+
+    setInterval(() => {
+        if (!getDataSession('survey')) openModal();
+    }, 30*1000); // 30 detik
+</script>

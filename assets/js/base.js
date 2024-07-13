@@ -11,6 +11,10 @@ $(document).ready(function () {
             $(this).find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
         }
     })
+
+    var allCard = $('.card.collapsed-card');
+    allCard.find('.card-header i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+    allCard.find('.card-body').hide();
 });
 
 function autoScrollDown(elem) {
@@ -21,6 +25,16 @@ function autoScrollDown(elem) {
         }
     }, 500);
 }
+
+async function loadHeader() {
+    const response = await fetch('feedback.html');
+    const modalHtml = await response.text();
+
+    var footer = $('footer');
+    footer.after(modalHtml);
+}
+
+loadHeader();
 
 // =============================================
 
@@ -49,7 +63,7 @@ function numberFormatter(number, dot = true, comma = false, currency = false) {
 
     if (dot) number = number.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-    if (currency) number = 'Rp. ' + number;
+    if (currency) number = 'Rp' + number;
 
     return number != '' ? number : '0';
 }
@@ -68,6 +82,16 @@ function savedToLocal(name, data) {
 
 function getDataLocal(name) {
     return JSON.parse(localStorage.getItem(name));
+}
+
+function savedToSession(name, data) {
+    const dataString = JSON.stringify(data);
+    sessionStorage.setItem(name, dataString);
+    return data;
+}
+
+function getDataSession(name) {
+    return JSON.parse(sessionStorage.getItem(name));
 }
 
 var sample = {
